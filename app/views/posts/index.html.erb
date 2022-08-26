@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="title.css" />
+    <title>つぶやき</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <h1 class="headline">
+        <a>つぶやき</a>
+      </h1>
+    </header>
+  </body>
+</html>
+
+
+<h1>つぶやき一覧</h1>
+
+<p><%= notice %></p>
+
+<table>
+  <div class="post_title">
+    <tr>
+      <th>内容</th>
+    </tr>
+  </div>
+
+  <% @posts.each do |post| %>
+    <div class="post">
+      <tr>
+        <td><%= post.content %></td>
+        <td><%= link_to '詳細を確認する', post_path(post.id) %></td>
+        <td><%= link_to "つぶやきを編集する", edit_post_path(post.id) %></td>
+        <td><%= link_to 'つぶやきを削除する', post_path(post.id), method: :delete %>
+        </td>
+      </tr>
+    </div>
+  <% end %>
+</table>
+
+
+<%= link_to '新しくつぶやきを投稿する', new_post_path %>
+
+
+<footer>
+    <ul class="footer-menu">
+      <li>about ｜</li>
+      <li>service ｜</li>
+      <li>Contact Us</li>
+    </ul>
+    <p>© All rights reserved by xxx.</p>
+  </footer>
+</body>
+</html>
